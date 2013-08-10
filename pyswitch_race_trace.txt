@@ -1,0 +1,498 @@
+This program should be regarded as a DEBUGGING aid, not as a 
+certifier of correctness.
+Call with the -l flag or read the license file for terms
+and conditions of use.
+Run this program with "-h" for the list of options.
+
+Bugs, questions, and comments should be directed to
+"melatti@di.uniroma1.it".
+
+CMurphi compiler last modified date: Jan  1 2013
+Include files last modified date:    Apr 28 2011
+==========================================================================
+
+==========================================================================
+Caching Murphi Release 5.4.6
+Finite-state Concurrent System Verifier.
+
+Caching Murphi Release 5.4.6 is based on various versions of Murphi.
+Caching Murphi Release 5.4.6 :
+Copyright (C) 2009-2012 by Sapienza University of Rome.
+Murphi release 3.1 :
+Copyright (C) 1992 - 1999 by the Board of Trustees of
+Leland Stanford Junior University.
+
+==========================================================================
+
+Protocol: pyswitchBuggy2
+
+Algorithm:
+	Verification by breadth first search.
+	with symmetry algorithm 3 -- Heuristic Small Memory Normalization
+	with permutation trial limit 10.
+
+Memory usage:
+
+	* The size of each state is 603 bits (rounded up to 80 bytes).
+	* The memory allocated for the hash table and state queue is
+	  2097 Mbytes.
+	  With states hash-compressed to 40 bits, the maximum size of
+	  the state space is 361577933 states.
+	   * Use option "-k" or "-m" to increase this, if necessary.
+	* Capacity in queue for breadth-first search: 36157793 states.
+	   * Change the constant gPercentActiveStates in mu_prolog.inc
+	     to increase this, if necessary.
+
+Progress Report:
+
+	1000 states explored in 3.33s, with 6668 rules fired and 596 states in the queue.
+	2000 states explored in 3.55s, with 15584 rules fired and 1087 states in the queue.
+	3000 states explored in 3.79s, with 25672 rules fired and 1525 states in the queue.
+	4000 states explored in 4.06s, with 36802 rules fired and 1918 states in the queue.
+	5000 states explored in 4.34s, with 49057 rules fired and 2249 states in the queue.
+	6000 states explored in 4.66s, with 62954 rules fired and 2506 states in the queue.
+	7000 states explored in 4.92s, with 74249 rules fired and 2895 states in the queue.
+	8000 states explored in 5.25s, with 88542 rules fired and 3130 states in the queue.
+	9000 states explored in 5.60s, with 104367 rules fired and 3296 states in the queue.
+	10000 states explored in 5.88s, with 116585 rules fired and 3635 states in the queue.
+	11000 states explored in 6.14s, with 127585 rules fired and 4053 states in the queue.
+	12000 states explored in 6.40s, with 138856 rules fired and 4453 states in the queue.
+	13000 states explored in 6.83s, with 158541 rules fired and 4417 states in the queue.
+	14000 states explored in 7.15s, with 172599 rules fired and 4673 states in the queue.
+	15000 states explored in 7.44s, with 185147 rules fired and 5003 states in the queue.
+	16000 states explored in 7.72s, with 197384 rules fired and 5362 states in the queue.
+	17000 states explored in 8.04s, with 211529 rules fired and 5617 states in the queue.
+
+The following is the error trace for the error:
+
+	Invariant "noLoop" failed.
+
+Startstate Init, hiD:0 fired.
+topo[0].end1Type:HOST
+topo[0].end1ID:0
+topo[0].end2Type:SWITCHDEVICE
+topo[0].end2ID:0
+topo[0].status:0
+topo[0].pkt:0
+topo[0].linkDirSpanning:noRes
+topo[1].end1Type:SWITCHDEVICE
+topo[1].end1ID:0
+topo[1].end2Type:SWITCHDEVICE
+topo[1].end2ID:1
+topo[1].status:0
+topo[1].pkt:0
+topo[1].linkDirSpanning:noRes
+topo[2].end1Type:SWITCHDEVICE
+topo[2].end1ID:0
+topo[2].end2Type:SWITCHDEVICE
+topo[2].end2ID:2
+topo[2].status:0
+topo[2].pkt:0
+topo[2].linkDirSpanning:noRes
+topo[3].end1Type:SWITCHDEVICE
+topo[3].end1ID:1
+topo[3].end2Type:HOST
+topo[3].end2ID:1
+topo[3].status:0
+topo[3].pkt:0
+topo[3].linkDirSpanning:noRes
+topo[4].end1Type:SWITCHDEVICE
+topo[4].end1ID:2
+topo[4].end2Type:SWITCHDEVICE
+topo[4].end2ID:1
+topo[4].status:0
+topo[4].pkt:0
+topo[4].linkDirSpanning:blockLink
+topo[5].end1Type:SWITCHDEVICE
+topo[5].end1ID:2
+topo[5].end2Type:HOST
+topo[5].end2ID:2
+topo[5].status:0
+topo[5].pkt:0
+topo[5].linkDirSpanning:noRes
+secureChannels[0].status:noReq
+secureChannels[0].pkt:Undefined
+secureChannels[0].cmd:Undefined
+secureChannels[0].inPort:Undefined
+secureChannels[0].outPort:Undefined
+secureChannels[1].status:noReq
+secureChannels[1].pkt:Undefined
+secureChannels[1].cmd:Undefined
+secureChannels[1].inPort:Undefined
+secureChannels[1].outPort:Undefined
+secureChannels[2].status:noReq
+secureChannels[2].pkt:Undefined
+secureChannels[2].cmd:Undefined
+secureChannels[2].inPort:Undefined
+secureChannels[2].outPort:Undefined
+debug:false
+env_o:true
+invNoLive:0
+hosts[0].link:0
+hosts[1].link:3
+hosts[2].link:5
+switches[0].flowTableOptim[0][0]:false
+switches[0].flowTableOptim[0][1]:false
+switches[0].flowTableOptim[0][2]:false
+switches[0].flowTableOptim[1][0]:false
+switches[0].flowTableOptim[1][1]:false
+switches[0].flowTableOptim[1][2]:false
+switches[0].flowTableOptim[2][0]:false
+switches[0].flowTableOptim[2][1]:false
+switches[0].flowTableOptim[2][2]:false
+switches[0].ports[0].link:0
+switches[0].ports[1].link:1
+switches[0].ports[2].link:2
+switches[0].mark:false
+switches[1].flowTableOptim[0][0]:false
+switches[1].flowTableOptim[0][1]:false
+switches[1].flowTableOptim[0][2]:false
+switches[1].flowTableOptim[1][0]:false
+switches[1].flowTableOptim[1][1]:false
+switches[1].flowTableOptim[1][2]:false
+switches[1].flowTableOptim[2][0]:false
+switches[1].flowTableOptim[2][1]:false
+switches[1].flowTableOptim[2][2]:false
+switches[1].ports[0].link:1
+switches[1].ports[1].link:3
+switches[1].ports[2].link:4
+switches[1].mark:false
+switches[2].flowTableOptim[0][0]:false
+switches[2].flowTableOptim[0][1]:false
+switches[2].flowTableOptim[0][2]:false
+switches[2].flowTableOptim[1][0]:false
+switches[2].flowTableOptim[1][1]:false
+switches[2].flowTableOptim[1][2]:false
+switches[2].flowTableOptim[2][0]:false
+switches[2].flowTableOptim[2][1]:false
+switches[2].flowTableOptim[2][2]:false
+switches[2].ports[0].link:2
+switches[2].ports[1].link:4
+switches[2].ports[2].link:5
+switches[2].mark:false
+ctrl_state[0][0].port:0
+ctrl_state[0][0].valid:false
+ctrl_state[0][1].port:0
+ctrl_state[0][1].valid:false
+ctrl_state[0][2].port:0
+ctrl_state[0][2].valid:false
+ctrl_state[0][3].port:0
+ctrl_state[0][3].valid:false
+ctrl_state[0][4].port:0
+ctrl_state[0][4].valid:false
+ctrl_state[0][5].port:0
+ctrl_state[0][5].valid:false
+ctrl_state[0][6].port:0
+ctrl_state[0][6].valid:false
+ctrl_state[0][7].port:0
+ctrl_state[0][7].valid:false
+ctrl_state[0][8].port:0
+ctrl_state[0][8].valid:false
+ctrl_state[0][9].port:0
+ctrl_state[0][9].valid:false
+ctrl_state[0][10].port:0
+ctrl_state[0][10].valid:false
+ctrl_state[0][11].port:0
+ctrl_state[0][11].valid:false
+ctrl_state[1][0].port:0
+ctrl_state[1][0].valid:false
+ctrl_state[1][1].port:0
+ctrl_state[1][1].valid:false
+ctrl_state[1][2].port:0
+ctrl_state[1][2].valid:false
+ctrl_state[1][3].port:0
+ctrl_state[1][3].valid:false
+ctrl_state[1][4].port:0
+ctrl_state[1][4].valid:false
+ctrl_state[1][5].port:0
+ctrl_state[1][5].valid:false
+ctrl_state[1][6].port:0
+ctrl_state[1][6].valid:false
+ctrl_state[1][7].port:0
+ctrl_state[1][7].valid:false
+ctrl_state[1][8].port:0
+ctrl_state[1][8].valid:false
+ctrl_state[1][9].port:0
+ctrl_state[1][9].valid:false
+ctrl_state[1][10].port:0
+ctrl_state[1][10].valid:false
+ctrl_state[1][11].port:0
+ctrl_state[1][11].valid:false
+ctrl_state[2][0].port:0
+ctrl_state[2][0].valid:false
+ctrl_state[2][1].port:0
+ctrl_state[2][1].valid:false
+ctrl_state[2][2].port:0
+ctrl_state[2][2].valid:false
+ctrl_state[2][3].port:0
+ctrl_state[2][3].valid:false
+ctrl_state[2][4].port:0
+ctrl_state[2][4].valid:false
+ctrl_state[2][5].port:0
+ctrl_state[2][5].valid:false
+ctrl_state[2][6].port:0
+ctrl_state[2][6].valid:false
+ctrl_state[2][7].port:0
+ctrl_state[2][7].valid:false
+ctrl_state[2][8].port:0
+ctrl_state[2][8].valid:false
+ctrl_state[2][9].port:0
+ctrl_state[2][9].valid:false
+ctrl_state[2][10].port:0
+ctrl_state[2][10].valid:false
+ctrl_state[2][11].port:0
+ctrl_state[2][11].valid:false
+----------
+
+Rule ControllerListenForEnvironSwitch, pktDstHost:0, pktSrcHost:1, inPort:1, switchID:1 fired.
+ctrl_state[1][1].port:1
+ctrl_state[1][1].valid:true
+----------
+
+Rule HostGeneratePacket fired.
+topo[0].status:1
+topo[0].pkt:1
+invNoLive:1
+----------
+
+Rule SwitchListenForPacket, portID:0, switchID:0 fired.
+topo[0].status:0
+secureChannels[0].status:reqToCtrl
+secureChannels[0].pkt:1
+secureChannels[0].inPort:0
+switches[0].mark:true
+----------
+
+Rule ControllerListenForSwitch, switchID:0 fired.
+secureChannels[0].status:ackReqToCtrl
+secureChannels[0].cmd:FLOOD
+secureChannels[0].outPort:0
+ctrl_state[0][0].valid:true
+----------
+
+Rule ControllerListenForEnvironSwitch, pktDstHost:0, pktSrcHost:1, inPort:1, switchID:0 fired.
+switches[0].flowTableOptim[0][0]:true
+ctrl_state[0][1].port:1
+ctrl_state[0][1].valid:true
+----------
+
+Rule ControllerListenForEnvironSwitch, pktDstHost:0, pktSrcHost:1, inPort:0, switchID:2 fired.
+ctrl_state[2][1].valid:true
+----------
+
+Rule SwitchListenForController, nonDetFloodPortID:2, switchID:0 fired.
+topo[2].status:1
+topo[2].pkt:1
+secureChannels[0].status:noReq
+----------
+
+Rule SwitchListenForPacket, portID:0, switchID:2 fired.
+topo[2].status:0
+secureChannels[2].status:reqToCtrl
+secureChannels[2].pkt:1
+secureChannels[2].inPort:0
+switches[2].mark:true
+----------
+
+Rule ControllerListenForSwitch, switchID:2 fired.
+secureChannels[2].status:ackReqToCtrl
+secureChannels[2].cmd:INSTALL
+secureChannels[2].outPort:0
+ctrl_state[2][0].valid:true
+----------
+
+Rule SwitchListenForController, nonDetFloodPortID:1, switchID:2 fired.
+The last state of the trace (in full) is:
+topo[0].end1Type:HOST
+topo[0].end1ID:0
+topo[0].end2Type:SWITCHDEVICE
+topo[0].end2ID:0
+topo[0].status:0
+topo[0].pkt:1
+topo[0].linkDirSpanning:noRes
+topo[1].end1Type:SWITCHDEVICE
+topo[1].end1ID:0
+topo[1].end2Type:SWITCHDEVICE
+topo[1].end2ID:1
+topo[1].status:0
+topo[1].pkt:0
+topo[1].linkDirSpanning:noRes
+topo[2].end1Type:SWITCHDEVICE
+topo[2].end1ID:0
+topo[2].end2Type:SWITCHDEVICE
+topo[2].end2ID:2
+topo[2].status:2
+topo[2].pkt:1
+topo[2].linkDirSpanning:noRes
+topo[3].end1Type:SWITCHDEVICE
+topo[3].end1ID:1
+topo[3].end2Type:HOST
+topo[3].end2ID:1
+topo[3].status:0
+topo[3].pkt:0
+topo[3].linkDirSpanning:noRes
+topo[4].end1Type:SWITCHDEVICE
+topo[4].end1ID:2
+topo[4].end2Type:SWITCHDEVICE
+topo[4].end2ID:1
+topo[4].status:0
+topo[4].pkt:0
+topo[4].linkDirSpanning:blockLink
+topo[5].end1Type:SWITCHDEVICE
+topo[5].end1ID:2
+topo[5].end2Type:HOST
+topo[5].end2ID:2
+topo[5].status:0
+topo[5].pkt:0
+topo[5].linkDirSpanning:noRes
+secureChannels[0].status:noReq
+secureChannels[0].pkt:1
+secureChannels[0].cmd:FLOOD
+secureChannels[0].inPort:0
+secureChannels[0].outPort:0
+secureChannels[1].status:noReq
+secureChannels[1].pkt:Undefined
+secureChannels[1].cmd:Undefined
+secureChannels[1].inPort:Undefined
+secureChannels[1].outPort:Undefined
+secureChannels[2].status:noReq
+secureChannels[2].pkt:1
+secureChannels[2].cmd:INSTALL
+secureChannels[2].inPort:0
+secureChannels[2].outPort:0
+debug:false
+env_o:true
+invNoLive:1
+hosts[0].link:0
+hosts[1].link:3
+hosts[2].link:5
+switches[0].flowTableOptim[0][0]:true
+switches[0].flowTableOptim[0][1]:false
+switches[0].flowTableOptim[0][2]:false
+switches[0].flowTableOptim[1][0]:false
+switches[0].flowTableOptim[1][1]:false
+switches[0].flowTableOptim[1][2]:false
+switches[0].flowTableOptim[2][0]:false
+switches[0].flowTableOptim[2][1]:false
+switches[0].flowTableOptim[2][2]:false
+switches[0].ports[0].link:0
+switches[0].ports[1].link:1
+switches[0].ports[2].link:2
+switches[0].mark:true
+switches[1].flowTableOptim[0][0]:false
+switches[1].flowTableOptim[0][1]:false
+switches[1].flowTableOptim[0][2]:false
+switches[1].flowTableOptim[1][0]:false
+switches[1].flowTableOptim[1][1]:false
+switches[1].flowTableOptim[1][2]:false
+switches[1].flowTableOptim[2][0]:false
+switches[1].flowTableOptim[2][1]:false
+switches[1].flowTableOptim[2][2]:false
+switches[1].ports[0].link:1
+switches[1].ports[1].link:3
+switches[1].ports[2].link:4
+switches[1].mark:false
+switches[2].flowTableOptim[0][0]:false
+switches[2].flowTableOptim[0][1]:false
+switches[2].flowTableOptim[0][2]:false
+switches[2].flowTableOptim[1][0]:false
+switches[2].flowTableOptim[1][1]:false
+switches[2].flowTableOptim[1][2]:false
+switches[2].flowTableOptim[2][0]:false
+switches[2].flowTableOptim[2][1]:false
+switches[2].flowTableOptim[2][2]:false
+switches[2].ports[0].link:2
+switches[2].ports[1].link:4
+switches[2].ports[2].link:5
+switches[2].mark:true
+ctrl_state[0][0].port:0
+ctrl_state[0][0].valid:true
+ctrl_state[0][1].port:1
+ctrl_state[0][1].valid:true
+ctrl_state[0][2].port:0
+ctrl_state[0][2].valid:false
+ctrl_state[0][3].port:0
+ctrl_state[0][3].valid:false
+ctrl_state[0][4].port:0
+ctrl_state[0][4].valid:false
+ctrl_state[0][5].port:0
+ctrl_state[0][5].valid:false
+ctrl_state[0][6].port:0
+ctrl_state[0][6].valid:false
+ctrl_state[0][7].port:0
+ctrl_state[0][7].valid:false
+ctrl_state[0][8].port:0
+ctrl_state[0][8].valid:false
+ctrl_state[0][9].port:0
+ctrl_state[0][9].valid:false
+ctrl_state[0][10].port:0
+ctrl_state[0][10].valid:false
+ctrl_state[0][11].port:0
+ctrl_state[0][11].valid:false
+ctrl_state[1][0].port:0
+ctrl_state[1][0].valid:false
+ctrl_state[1][1].port:1
+ctrl_state[1][1].valid:true
+ctrl_state[1][2].port:0
+ctrl_state[1][2].valid:false
+ctrl_state[1][3].port:0
+ctrl_state[1][3].valid:false
+ctrl_state[1][4].port:0
+ctrl_state[1][4].valid:false
+ctrl_state[1][5].port:0
+ctrl_state[1][5].valid:false
+ctrl_state[1][6].port:0
+ctrl_state[1][6].valid:false
+ctrl_state[1][7].port:0
+ctrl_state[1][7].valid:false
+ctrl_state[1][8].port:0
+ctrl_state[1][8].valid:false
+ctrl_state[1][9].port:0
+ctrl_state[1][9].valid:false
+ctrl_state[1][10].port:0
+ctrl_state[1][10].valid:false
+ctrl_state[1][11].port:0
+ctrl_state[1][11].valid:false
+ctrl_state[2][0].port:0
+ctrl_state[2][0].valid:true
+ctrl_state[2][1].port:0
+ctrl_state[2][1].valid:true
+ctrl_state[2][2].port:0
+ctrl_state[2][2].valid:false
+ctrl_state[2][3].port:0
+ctrl_state[2][3].valid:false
+ctrl_state[2][4].port:0
+ctrl_state[2][4].valid:false
+ctrl_state[2][5].port:0
+ctrl_state[2][5].valid:false
+ctrl_state[2][6].port:0
+ctrl_state[2][6].valid:false
+ctrl_state[2][7].port:0
+ctrl_state[2][7].valid:false
+ctrl_state[2][8].port:0
+ctrl_state[2][8].valid:false
+ctrl_state[2][9].port:0
+ctrl_state[2][9].valid:false
+ctrl_state[2][10].port:0
+ctrl_state[2][10].valid:false
+ctrl_state[2][11].port:0
+ctrl_state[2][11].valid:false
+----------
+
+End of the error trace.
+
+==========================================================================
+
+Result:
+
+	Invariant "noLoop" failed.
+
+State Space Explored:
+
+	17685 states, 220163 rules fired in 8.24s.
+
+Analysis of State Space:
+
+	There are rules that are never fired.
+	If you are running with symmetry, this may be why.  Otherwise,
+	please run this program with "-pr" for the rules information.
